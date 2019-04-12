@@ -1,8 +1,7 @@
 require_relative( "../models/vehicle.rb" )
 require_relative( "../models/customer.rb" )
-#require_relative( "../models/rental.rb" )
+require_relative( "../models/rental.rb" )
 require("pry-byebug")
-
 
 
 vehicle1 = Vehicle.new({
@@ -69,6 +68,12 @@ customer4 = Customer.new({
 
 customer4.save()
 
+rental1 = Rental.new({
+  'customer_id' => customer1.id,
+  'vehicle_id' => vehicle3.id
+  })
+
+rental1.save
 
 binding.pry
 nil
