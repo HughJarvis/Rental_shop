@@ -1,0 +1,11 @@
+<h1>Customers</h1>
+
+<a href="/customers/new">Add new customer</a>
+<br>
+
+<% @customers.each do |customer| %>
+  <h2><%= customer.first_name %> <%= customer.second_name %></h2>
+  <br>
+  <a href="/customers/<%=customer.id%>/edit">Edit customer details</a>
+
+  <% end %>

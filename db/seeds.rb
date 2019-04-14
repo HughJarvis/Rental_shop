@@ -8,7 +8,7 @@ vehicle1 = Vehicle.new({
     'name' => 'KITT',
     'category' => 'screen_stars',
     'on_hire' => 'false',
-    'image'=> 'none'
+    'image'=> 'KITT.jpeg'
   })
 
   vehicle1.save()
@@ -17,7 +17,7 @@ vehicle2 = Vehicle.new({
       'name' => 'tank',
       'category' => 'military',
       'on_hire' => 'false',
-      'image'=> 'none'
+      'image'=> 'tank.jpeg'
     })
 
   vehicle2.save()
@@ -26,7 +26,7 @@ vehicle3 = Vehicle.new({
       'name' => 'crane',
       'category' => 'heavy_plant',
       'on_hire' => 'false',
-      'image'=> 'none'
+      'image'=> 'crane.jpg'
     })
 
 vehicle3.save()
@@ -35,10 +35,17 @@ vehicle4 = Vehicle.new({
       'name' => 'penny_farthing',
       'category' => 'circus',
       'on_hire' => 'true',
-      'image'=> 'none'
+      'image'=> 'penny_farthing.jpg'
     })
 
 vehicle4.save()
+
+vehicle5 = Vehicle.new({
+      'name' => 'Blue Thunder',
+      'category' => 'screen_stars',
+      'on_hire' => 'true',
+      'image' => 'blue_thunder.jpeg'
+  })
 
 customer1 = Customer.new({
   'first_name' => 'Lorraine',

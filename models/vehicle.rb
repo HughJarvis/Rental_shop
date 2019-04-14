@@ -33,7 +33,7 @@ class Vehicle
     return Vehicle.new(result)
   end
 
-
+  #define function to return all vehicles of given category
   def Vehicle.category(category)
     sql = "SELECT * FROM vehicles WHERE category = $1"
     values = [category]
@@ -57,28 +57,64 @@ class Vehicle
     return results.map{ |vehicle| Vehicle.new(vehicle) }
   end
 
-def delete()
-  sql = "DELETE * FROM vehicles WHERE id = $1"
-  values = [@id]
-  SqlRunner.run(sql, values)
-end
+  def delete()
+    sql = "DELETE * FROM vehicles WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
 
-def update()
-  sql = "UPDATE vehicles SET (name, category, on_hire, image) = ($1, $2, $3, $4) WHERE id = $5"
-  values = [@name, @category, @on_hire, @image, @id]
-  SqlRunner.run(sql, values)
-end
+  def update()
+    sql = "UPDATE vehicles SET (name, category, on_hire, image) = ($1, $2, $3, $4) WHERE id = $5"
+    values = [@name, @category, @on_hire, @image, @id]
+    SqlRunner.run(sql, values)
+  end
 
-def check_out()
-  sql = "UPDATE vehicles SET on_hire = $1 WHERE id = $2"
-  values = ["true", @id]
-  SqlRunner.run(sql, values)
-end
+  def check_out()
+    sql = "UPDATE vehicles SET on_hire = $1 WHERE id = $2"
+    values = ["true", @id]
+    SqlRunner.run(sql, values)
+  end
 
-def check_in()
-  sql = "UPDATE vehicles SET on_hire = $1 WHERE id = $2"
-  values = ["false", @id]
-  SqlRunner.run(sql, values)
-end
+  def check_in()
+    sql = "UPDATE vehicles SET on_hire = $1 WHERE id = $2"
+    values = ["false", @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def delete()
+    sql = "DELETE * FROM vehicles WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def update()
+    sql = "UPDATE vehicles SET (name, category, on_hire, image) = ($1, $2, $3, $4) WHERE id = $5"
+    values = [@name, @category, @on_hire, @image, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def check_out()
+    sql = "UPDATE vehicles SET on_hire = $1 WHERE id = $2"
+    values = ["true", @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def check_in()
+    sql = "UPDATE vehicles SET on_hire = $1 WHERE id = $2"
+    values = ["false", @id]
+    SqlRunner.run(sql, values)
+  end
+
+  #define function to assign vehicle to a customer (i.e create a new rental)
+  def rent(customer)
+    new_rental = Rental.new({
+        'customer_id' => customer.id,
+        'vehicle_id' => @id
+      })
+    new_rental.save()
+    return new_rental
+    end
+
+
 
 end

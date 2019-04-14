@@ -1,0 +1,13 @@
+<h1>Vehicles</h1>
+
+<a href="/vehicles/new">Add new vehicle</a>
+<br>
+
+<% @vehicles.each do |vehicle| %>
+  <h2><%= vehicle.name %></h2>
+  <img src="public/images/<%=vehicle.image%>" alt="Photo of <%=vehicle.name%>">
+  <br>
+  <a href="/vehicles/<%=vehicle.id%>/edit">Edit vehicle details</a>
+
+
+  <% end %>
