@@ -2,3 +2,13 @@
 
 <a href="/rentals/new">Create new rental </a>
 <br>
+
+<%@rentals.each do |rental|%>
+  <h1>Rental <%=rental.id%></h1>
+  <p1>Vehicle:<%=rental.vehicle.name%></p>
+  <p1>Customer: <%=rental.customer.second_name%>, <%=rental.customer.first_name%></p>
+    <br>
+
+
+
+<% end %>

@@ -26,6 +26,12 @@ class Vehicle
     return results.map{ |vehicle| Vehicle.new(vehicle) }
   end
 
+  def Vehicle.categories()
+    sql = "SELECT vehicles.category FROM vehicles"
+    results = SqlRunner.run(sql).uniq
+    results.map{ |result| result['category'] }
+  end
+
   def Vehicle.find(id)
     sql = "SELECT * FROM vehicles WHERE id = $1"
     values = [id]
@@ -58,7 +64,7 @@ class Vehicle
   end
 
   def delete()
-    sql = "DELETE * FROM vehicles WHERE id = $1"
+    sql = "DELETE FROM vehicles WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end

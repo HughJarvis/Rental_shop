@@ -1,8 +1,8 @@
-<h1>Edit:  <%=@vehicle.name%></h1>
+<h1>Edit Customer details</h1>
 
-<img src="/images/<%=@vehicle.image%>" alt="Photo of <%=@vehicle.name%>">
 
-<form action="/vehicles/<%=@vehicle.id%>" method="post">
+
+<form action="//<%=@vehicle.id%>" method="post">
 
   <label for="name">Name</label>
   <input type="text" id="name" name="name" value="<%=@vehicle.name%>">
@@ -16,6 +16,6 @@
 </form>
 
 
-<form class="" action="/vehicles/<%=@vehicle.id%>/delete" method="post">
-<input type="submit" value="Delete <%=@vehicle.name%>">
+<form class="" action="vehicle/@vehicle.id/delete" method="post">
+<input type="submit" value="Delete vehicle details">
 </form>

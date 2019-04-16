@@ -4,8 +4,7 @@
 <br>
 
 <% @customers.each do |customer| %>
-  <h2><%= customer.first_name %> <%= customer.second_name %></h2>
-  <br>
-  <a href="/customers/<%=customer.id%>/edit">Edit customer details</a>
+  <h2><%= customer.second_name %>, <%= customer.first_name %></h2>
 
+  <a href="/customers/<%=customer.id%>/rent">Set up rental</a>
   <% end %>

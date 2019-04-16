@@ -1,0 +1,16 @@
+<h1>rent to <%=@customer.first_name%> <%=@customer.second_name%></h1>
+
+<form action="/customers/<%=@customer.id%>/<%=@vehicle.id%>" method="post">
+
+  <label for="vehicle-id">Choose Vehicle</label>
+  <select id="vehicle-id" name="vehicle_id">
+
+    <%@vehicles.each do |vehicle|%>
+
+    <option <%=vehicle.id%> value="<%=vehicle.id%>"><%=vehicle.name%></option>
+    <%end%>
+  </select>
+
+<input type="submit" value="Save new rental">
+
+</form>

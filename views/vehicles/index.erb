@@ -1,13 +1,36 @@
 <h1>Vehicles</h1>
 
+
+<ul>
+  <li><a href="/vehicles/available">available</a>
+  </li>
+  <li><a href="/vehicles/rented">on-hire</a>
+  </li>
+</ul>
+<br>
+
+<ul>Categories
+  <%=@categories.each do |category| %>
+  <li><a href="vehicles/<%=category%>"><%=category%></a></li>
+  <%end%>
+</ul>
+
 <a href="/vehicles/new">Add new vehicle</a>
 <br>
 
 <% @vehicles.each do |vehicle| %>
   <h2><%= vehicle.name %></h2>
-  <img src="public/images/<%=vehicle.image%>" alt="Photo of <%=vehicle.name%>">
+  <img src="/public/images/<%=vehicle.image%>" alt="Photo of <%=vehicle.name%>">
   <br>
-  <a href="/vehicles/<%=vehicle.id%>/edit">Edit vehicle details</a>
+  <a href="/vehicles/<%=vehicle.id%>">Show vehicle details</a>
+  <br>
+  
+  <% if vehicle.on_hire == 'true' %>
+  <form class="" action="/vehicles/<%=vehicle.id%>/check-in" method="post">
+  <input type="submit" name="" value="Check-in <%=vehicle.name%>">
+  </form>
+  <%else%>
+  <a href="/vehicles/<%=vehicle.id%>/rent">Rent this vehicle</a>
 
-
-  <% end %>
+  <%end%>
+  <%end%>

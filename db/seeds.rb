@@ -14,7 +14,7 @@ vehicle1 = Vehicle.new({
   vehicle1.save()
 
 vehicle2 = Vehicle.new({
-      'name' => 'tank',
+      'name' => 'Tank',
       'category' => 'military',
       'on_hire' => 'false',
       'image'=> 'tank.jpeg'
@@ -23,7 +23,7 @@ vehicle2 = Vehicle.new({
   vehicle2.save()
 
 vehicle3 = Vehicle.new({
-      'name' => 'crane',
+      'name' => 'Crane',
       'category' => 'heavy_plant',
       'on_hire' => 'false',
       'image'=> 'crane.jpg'
@@ -32,7 +32,7 @@ vehicle3 = Vehicle.new({
 vehicle3.save()
 
 vehicle4 = Vehicle.new({
-      'name' => 'penny_farthing',
+      'name' => 'Penny Farthing',
       'category' => 'circus',
       'on_hire' => 'true',
       'image'=> 'penny_farthing.jpg'

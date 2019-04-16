@@ -23,6 +23,13 @@ class Customer
     return results.map{ |customer| Customer.new(customer) }
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM customers WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)[0]
+    return Customer.new(result)
+  end
+
   def delete()
     sql = "DELETE FROM customers WHERE id = $1"
     values = [@id]
@@ -35,6 +42,20 @@ class Customer
     SqlRunner.run(sql, values)
   end
 
+  def rentals()
+    sql = "SELECT * FROM rentals WHERE customer_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map{ |rental| Rental.new(rental) }
+  end
+
+  def vehicles()
+    sql = "SELECT * FROM vehicles INNER JOIN rentals ON rentals.vehicle_id =
+          vehicles.id WHERE rentals.customer_id = $1"
+    values = [@id]
+    resuls = SqlRunner.run(sql, values)
+    return results.map{ |vehicle| Vehicle.new(vehicle) }
+  end
 
 
 
