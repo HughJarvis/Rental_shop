@@ -23,9 +23,9 @@
 
       <h3>Rental <%=rental.id%></h3>
     <ul class="rentals">
-      <li>Vehicle: <a href="vehicles/<%=rental.vehicle.id%>"><%=rental.vehicle.name%></a></li>
+      <li>Vehicle: <%=rental.vehicle.name%></li>
 
-      <li>Customer: <a href="customers/<%=rental.customer.id%>"><%=rental.customer.second_name%>, <%=rental.customer.first_name%></a></li>
+      <li>Customer: <%=rental.customer.second_name%>, <%=rental.customer.first_name%></a></li>
     </ul>
     <hr class="rentals">
     <% end %>
