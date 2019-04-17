@@ -25,7 +25,7 @@ vehicle2 = Vehicle.new({
 vehicle3 = Vehicle.new({
       'name' => 'Crane',
       'category' => 'heavy_plant',
-      'on_hire' => 'false',
+      'on_hire' => 'true',
       'image'=> 'crane.jpg'
     })
 
@@ -34,18 +34,41 @@ vehicle3.save()
 vehicle4 = Vehicle.new({
       'name' => 'Penny Farthing',
       'category' => 'circus',
-      'on_hire' => 'true',
+      'on_hire' => 'false',
       'image'=> 'penny_farthing.jpg'
     })
 
 vehicle4.save()
 
 vehicle5 = Vehicle.new({
-      'name' => 'Blue Thunder',
-      'category' => 'screen_stars',
+      'name' => 'Bulldozer',
+      'category' => 'heavy_plant',
       'on_hire' => 'true',
-      'image' => 'blue_thunder.jpeg'
+      'image' => 'bulldozer.jpeg'
   })
+
+vehicle5.save()
+
+vehicle6 = Vehicle.new({
+      'name' => 'Velocipede',
+      'category' => 'circus',
+      'on_hire' => 'false',
+      'image' => 'velocipede.jpg'
+  })
+
+vehicle6.save()
+
+vehicle7 = Vehicle.new({
+      'name' => 'Airwolf',
+      'category' => 'circus',
+      'on_hire' => 'false',
+      'image' => 'airwolf.jpg'
+  })
+
+vehicle7.save()
+
+
+
 
 customer1 = Customer.new({
   'first_name' => 'Lorraine',
@@ -82,12 +105,34 @@ customer5 = Customer.new({
 
 customer5.save()
 
+customer6 = Customer.new({
+  'first_name' => 'Charlie',
+  'second_name' => 'Reid'
+  })
+
+customer6.save()
+
+customer7 = Customer.new({
+  'first_name' => 'Mary',
+  'second_name' => 'Marquis'
+  })
+
+customer7.save()
+
+
 rental1 = Rental.new({
   'customer_id' => customer1.id,
   'vehicle_id' => vehicle3.id
   })
 
 rental1.save
+
+rental2 = Rental.new({
+  'customer_id' => customer2.id,
+  'vehicle_id' => vehicle5.id
+  })
+
+rental2.save
 
 binding.pry
 nil

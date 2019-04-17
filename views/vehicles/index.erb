@@ -32,11 +32,17 @@
       <h3><%= vehicle.name %></h3>
 
           <% if vehicle.on_hire == 'false' %>
-          <a href="/vehicles/<%=vehicle.id%>">Show <%=vehicle.name%> details</a><br>
-          <a href="/vehicles/<%=vehicle.id%>/rent">Rent <%=vehicle.name%></a><br>
 
+
+        <ul class="vehicles">
+          <li><a href="/vehicles/<%=vehicle.id%>">Show <%=vehicle.name%> details</a></li>
+          <li><a href="/vehicles/<%=vehicle.id%>/rent">Rent <%=vehicle.name%></a></li><br>
+        </ul>
           <%else%>
-          <a href="/vehicles/<%=vehicle.id%>">Show <%=vehicle.name%> details</a><br>
+
+        <ul class="vehicles">
+          <li><a href="/vehicles/<%=vehicle.id%>">Show <%=vehicle.name%> details</a></li>
+        </ul>
 
       <form class="" action="/vehicles/<%=vehicle.id%>/check-in" method="post">
         <input type="submit" name="" value="Check-in <%=vehicle.name%>">

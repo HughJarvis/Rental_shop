@@ -58,7 +58,7 @@ class Vehicle
 
 #Function to return all vehicles available for rent
   def Vehicle.available()
-    sql = "SELECT * FROM vehicles WHERE on_hire = $1"
+    sql = "SELECT * FROM vehicles WHERE on_hire = $1 ORDER BY name ASC"
     values = ["false"]
     results = SqlRunner.run(sql, values)
     return results.map{ |vehicle| Vehicle.new(vehicle) }
