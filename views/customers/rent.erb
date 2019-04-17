@@ -1,6 +1,6 @@
 <h1>rent to <%=@customer.first_name%> <%=@customer.second_name%></h1>
 
-<form action="/customers/<%=@customer.id%>/<%=@vehicle.id%>" method="post">
+<form action="/customers/<%=@customer.id%>/rent" method="post">
 
   <label for="vehicle-id">Choose Vehicle</label>
   <select id="vehicle-id" name="vehicle_id">

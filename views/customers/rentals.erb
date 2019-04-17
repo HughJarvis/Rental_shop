@@ -1,0 +1,11 @@
+<h1><%=@customer.first_name%> <%=@customer.second_name%>'s rentals</h>
+  <br>
+
+
+<%@rentals.each do |rental|%>
+  <h1>Rental <%=rental.id%></h1>
+  <img src="/images/<%=rental.vehicle.image%>" alt="Photo of <%=rental.vehicle.name%>">
+    <br>
+  <p1>Vehicle:<%=rental.vehicle.name%></p>
+
+<% end %>

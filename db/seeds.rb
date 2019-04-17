@@ -8,7 +8,7 @@ vehicle1 = Vehicle.new({
     'name' => 'KITT',
     'category' => 'screen_stars',
     'on_hire' => 'false',
-    'image'=> 'KITT.jpeg'
+    'image'=> 'KITT.jpg'
   })
 
   vehicle1.save()
@@ -74,6 +74,13 @@ customer4 = Customer.new({
   })
 
 customer4.save()
+
+customer5 = Customer.new({
+  'first_name' => 'Eugene',
+  'second_name' => 'Kelly'
+  })
+
+customer5.save()
 
 rental1 = Rental.new({
   'customer_id' => customer1.id,

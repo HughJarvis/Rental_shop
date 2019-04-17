@@ -2,20 +2,20 @@
 
 
 
-<form action="//<%=@vehicle.id%>" method="post">
+<form action="/customers/<%=@customer.id%>" method="post">
 
-  <label for="name">Name</label>
-  <input type="text" id="name" name="name" value="<%=@vehicle.name%>">
+  <label for="second_name">Second name</label>
+  <input type="text" name="second_name" value="<%=@customer.second_name%>">
   <br>
-  <label for="category">Category</label>
-  <input type="text" id= "category" name="category" value="<%=@vehicle.category%>">
+  <label for="first_name">First name</label>
+  <input type="text" name="first_name" value="<%=@customer.first_name%>">
   <br>
 
-<input type="submit" value="Update vehicle details">
+<input type="submit" value="Update customer details">
 
 </form>
 
 
-<form class="" action="vehicle/@vehicle.id/delete" method="post">
-<input type="submit" value="Delete vehicle details">
+<form class="" action="vehicle/@customer.id/delete" method="post">
+<input type="submit" value="Delete customer">
 </form>

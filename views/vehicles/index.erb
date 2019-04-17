@@ -1,36 +1,53 @@
-<h1>Vehicles</h1>
+<div class="wrapper">
+<header class="main-head"><h1>Vehicles<h1></header>
 
-
-<ul>
-  <li><a href="/vehicles/available">available</a>
-  </li>
-  <li><a href="/vehicles/rented">on-hire</a>
-  </li>
-</ul>
+<div class="">
+  <ul>
+    <li><a href="/vehicles/available">available</a>
+    </li>
+    <li><a href="/vehicles/rented">on-hire</a>
+    </li>
+  </ul>
+</div>
 <br>
 
-<ul>Categories
-  <%=@categories.each do |category| %>
-  <li><a href="vehicles/<%=category%>"><%=category%></a></li>
-  <%end%>
-</ul>
+<aside class="side">
+  <h3>Categories</h3>
+    <ul>
+      <%@categories.each do |category| %>
+        <li><a href="/vehicles/filter/<%=category.to_s%>"><%=category%></a></li>
+        <%end%>
+    </ul>
+</aside>
 
-<a href="/vehicles/new">Add new vehicle</a>
-<br>
+<div class="">
+<a href="/vehicles/new">Add new vehicle</a><br>
+</div>
 
-<% @vehicles.each do |vehicle| %>
-  <h2><%= vehicle.name %></h2>
-  <img src="/public/images/<%=vehicle.image%>" alt="Photo of <%=vehicle.name%>">
-  <br>
-  <a href="/vehicles/<%=vehicle.id%>">Show vehicle details</a>
-  <br>
-  
-  <% if vehicle.on_hire == 'true' %>
-  <form class="" action="/vehicles/<%=vehicle.id%>/check-in" method="post">
-  <input type="submit" name="" value="Check-in <%=vehicle.name%>">
-  </form>
-  <%else%>
-  <a href="/vehicles/<%=vehicle.id%>/rent">Rent this vehicle</a>
+<div class="">
+  <% @vehicles.each do |vehicle| %>
+  <hr>
+    <figure class="">
+      <img src="/images/<%=vehicle.image%>" alt="Photo of <%=vehicle.name%>"><br>
+    </figure>
 
-  <%end%>
-  <%end%>
+    <div class="">
+      <h3><%= vehicle.name %></h3>
+    </div>
+          <% if vehicle.on_hire == 'true' %>
+
+      <form class="" action="/vehicles/<%=vehicle.id%>/check-in" method="post">
+        <input type="submit" name="" value="Check-in <%=vehicle.name%>"><br>
+          <%else%>
+      </form>
+
+      <div class="">
+        <a href="/vehicles/<%=vehicle.id%>/rent">Rent <%=vehicle.name%></a><br>
+          <%end%>
+      </div>
+
+      <div class="">
+        <a href="/vehicles/<%=vehicle.id%>">Show <%=vehicle.name%> details</a>
+          <%end%>
+      </div>
+</div>

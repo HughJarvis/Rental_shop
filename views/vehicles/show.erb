@@ -1,11 +1,11 @@
 <h1><%= @vehicle.name %></h1>
 
-<img src="/public/images/<%=@vehicle.image%>" alt="Photo of <%=@vehicle.name%>">
+<img src="/images/<%=@vehicle.image%>" alt="Photo of <%=@vehicle.name%>">
 <br>
 <a href="/vehicles/<%=@vehicle.id%>/edit">Edit <%=@vehicle.name%> details</a>
 <br>
-<a href="/vehicles/<%=@vehicle.id%>/rent-new">Rent <%=@vehicle.name%> to new customer</a>
-<a href="/vehicles/<%=@vehicle.id%>/rent">Rent <%=@vehicle.name%> to previous customer</a>
+
+<a href="/vehicles/<%=@vehicle.id%>/rent">Rent <%=@vehicle.name%></a>
 
 <form class="" action="/vehicles/<%=@vehicle.id%>/delete" method="post">
 <input type="submit" value="Delete <%=@vehicle.name%>">

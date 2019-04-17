@@ -1,18 +1,23 @@
 <h1>Rent:  <%=@vehicle.name%></h1>
 
+<figure class="">
 <img src="/images/<%=@vehicle.image%>" alt="Photo of <%=@vehicle.name%>">
+</figure>
 
-<form action="/vehicles/<%=@vehicle.id%>/<%=@customer.id%>" method="post">
+<div class="">
+
+
+<form action="/vehicles/<%=@vehicle.id%>/rent" method="post">
 
   <label for="customer-id">Customer</label>
-  <select id="customer-id" name="customer_id">
+    <select id="customer-id" name="customer_id">
 
-    <%@customers.each do |customer|%>
+      <%@customers.each do |customer|%>
 
-    <option <%=customer.id%> value="<%=customer.id%>"><%=customer.second_name%>, <%=customer.first_name%></option>
-    <%end%>
-  </select>
+      <option value="<%=customer.id%>"><%=customer.second_name%>, <%=customer.first_name%></option>
+      <%end%>
+    </select>
 
-<input type="submit" value="Save new rental">
-
+    <input type="submit" value="Save new rental">
 </form>
+</div>

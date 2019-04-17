@@ -1,10 +1,20 @@
-<h1>Customers</h1>
+<header class="main-head"><h1>Customers</h1></header>
+<div class="">
 
-<a href="/customers/new">Add new customer</a>
-<br>
 
-<% @customers.each do |customer| %>
-  <h2><%= customer.second_name %>, <%= customer.first_name %></h2>
+  <a href="/customers/new">Add new customer</a>
+  <br>
+</div>
 
-  <a href="/customers/<%=customer.id%>/rent">Set up rental</a>
+<div class="">
+  <% @customers.each do |customer| %>
+    <h3><%= customer.second_name %>, <%= customer.first_name %></h3>
+</div>
+<div class="">
+    <a href="/customers/<%=customer.id%>/rent">Set up rental</a>
+    <br>
+</div>
+<div class="">
+    <a href="/customers/<%=customer.id%>">Show <%= customer.first_name %> <%= customer.second_name%>'s details</a>
   <% end %>
+</div>

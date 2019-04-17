@@ -12,7 +12,8 @@ class Customer
 
 
   def save()
-    sql = "INSERT INTO customers (first_name, second_name) VALUES ($1, $2) RETURNING id"
+    sql = "INSERT INTO customers (first_name, second_name)
+          VALUES ($1, $2) RETURNING id"
     values = [@first_name, @second_name]
     @id = SqlRunner.run(sql, values)[0]['id'].to_i
   end
@@ -23,7 +24,7 @@ class Customer
     return results.map{ |customer| Customer.new(customer) }
   end
 
-  def self.find(id)
+  def Customer.find(id)
     sql = "SELECT * FROM customers WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values)[0]

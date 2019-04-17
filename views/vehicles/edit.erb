@@ -1,21 +1,33 @@
 <h1>Edit:  <%=@vehicle.name%></h1>
 
+<figure>
 <img src="/images/<%=@vehicle.image%>" alt="Photo of <%=@vehicle.name%>">
+</figure>
 
-<form action="/vehicles/<%=@vehicle.id%>" method="post">
+<div class="">
+  <form action="/vehicles/<%=@vehicle.id%>" method="post">
 
-  <label for="name">Name</label>
-  <input type="text" id="name" name="name" value="<%=@vehicle.name%>">
+    <label for="name">Name:</label>
+    <input type="text" name="name" value="<%=@vehicle.name%>">
+      <br>
+      <label for="category">Category:</label>
+      <input type="text" name="category" value="<%=@vehicle.category%>">
   <br>
-  <label for="category">Category</label>
-  <input type="text" id= "category" name="category" value="<%=@vehicle.category%>">
+      <label for="image">Enter photo filename:</label>
+      <input type="text" name="image" value="<%=@vehicle.image%>">
+  <br>
+    <label for="on_hire">On hire?</label>
+    <input type="radio" name="on_hire" value="true">Yes
+    <input type="radio" name="on_hire" value="false" checked/>No
   <br>
 
-<input type="submit" value="Update vehicle details">
+    <input type="submit" value="Update vehicle details">
 
-</form>
+  </form>
+</div>
 
-
-<form class="" action="/vehicles/<%=@vehicle.id%>/delete" method="post">
-<input type="submit" value="Delete <%=@vehicle.name%>">
-</form>
+<div class="">
+  <form class="" action="/vehicles/<%=@vehicle.id%>/delete" method="post">
+    <input type="submit" value="Delete <%=@vehicle.name%>">
+  </form>
+</div>

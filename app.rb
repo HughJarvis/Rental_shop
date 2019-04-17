@@ -8,5 +8,7 @@ require_relative('controllers/rental_controller')
 
 
 get '/' do
+  @available_vehicles = Vehicle.available()
+  @vehicles_on_hire = Vehicle.rented()
   erb( :index)
 end

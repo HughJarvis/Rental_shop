@@ -1,13 +1,15 @@
 <h1>Enter vehicle details</h1>
 
-<form action="/vehicles" method="post">
-  name:<br>
-  <input type="text" name="name"><br>
-  category:<br>
-  <input type="text" name="category"><br>
-  image: <br>
-  <input type="text" name="image">
+<div class="">
+  <form action="/vehicles" method="post">
+    name:<input type="text" name="name"><br>
+    category:<input type="text" name="category"><br>
+    image: <input type="text" name="image"><br>
+    on hire?<br>
+    <input type="radio" name="on_hire" value="true">Yes
+    <input type="radio" name="on_hire" value="false" checked/>No
+<br>
+    <input type="submit" value="Save new vehicle">
 
-<input type="submit" value="Save new vehicle">
-
-</form>
+  </form>
+</div>

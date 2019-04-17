@@ -1,0 +1,64 @@
+hr {
+    width: 300px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    background-color:#666;
+    display: block;
+    margin-before: 0.5em;
+    margin-after: 0.5em;
+    margin-start: auto;
+    margin-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+}
+
+
+
+
+.main-head {
+  grid-area: header;
+}
+
+.content {
+  grid-area: content;
+}
+
+.main-nav {
+  grid-area: nav;
+}
+
+.side {
+  grid-area: sidebar;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas:
+      "header  header"
+      "nav     nav"
+      "sidebar content";
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
+
+figure {
+    border: thin #c0c0c0 solid;
+    display: flex;
+    flex-flow: column;
+    padding: 5px;
+    max-width: 80px;
+    margin: auto;
+}
+
+img {
+    max-width: 90px;
+    max-height: 60px;
+}

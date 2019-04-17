@@ -26,10 +26,35 @@ get '/customers/:id/edit' do
   erb(:"customers/edit")
 end
 
+post '/customers/:id' do
+  @customer = Customer.new(params)
+  @customer.update()
+  redirect to '/customers'
+end
+
+
 get '/customers/:id/rent' do
   @customer = Customer.find(params[:id])
-  @vehicles = Vehicle.all()
+  @vehicles = Vehicle.available()
   erb(:"customers/rent")
+end
+
+get '/customers/:id/rentals' do
+  @customer = Customer.find(params[:id])
+  @rentals = @customer.rentals
+  erb (:"customers/rentals")
+end
+
+
+post '/customers/:id/rent' do
+  rental = Rental.new({
+            'customer_id' => params[:id],
+            'vehicle_id' => params[:vehicle_id]
+            })
+  rental.save()
+  vehicle = Vehicle.find(params[:vehicle_id])
+  vehicle.check_out()
+  redirect to '/rentals'
 end
 
 post '/customers' do

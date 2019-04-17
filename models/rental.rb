@@ -11,7 +11,8 @@ class Rental
   end
 
   def save()
-    sql = "INSERT INTO rentals (customer_id, vehicle_id) VALUES ($1, $2) RETURNING id"
+    sql = "INSERT INTO rentals (customer_id, vehicle_id)
+          VALUES ($1, $2) RETURNING id"
     values = [@customer_id, @vehicle_id]
     @id = SqlRunner.run(sql, values)[0]['id'].to_i
   end

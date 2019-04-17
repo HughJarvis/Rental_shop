@@ -1,14 +1,28 @@
-<h1>Rentals</h1>
+<header class="main-head"><h1>Rentals<h1></header>
 
-<a href="/rentals/new">Create new rental </a>
+
+<a href="/rentals/new">Create new rental</a>
 <br>
 
+
+
 <%@rentals.each do |rental|%>
-  <h1>Rental <%=rental.id%></h1>
-  <p1>Vehicle:<%=rental.vehicle.name%></p>
+<hr>
+<figure>
+  <img src="/images/<%=rental.vehicle.image%>" alt="Photo of <%=rental.vehicle.name%>">
+</figure>
+
+<div class="">
+  <h3>Rental <%=rental.id%></h3>
+</div>
+
+<div class="">
+  <p1>Vehicle: <%=rental.vehicle.name%></p>
+</div>
+
+<div class="">
   <p1>Customer: <%=rental.customer.second_name%>, <%=rental.customer.first_name%></p>
+</div>
     <br>
-
-
 
 <% end %>
