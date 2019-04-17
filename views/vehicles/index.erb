@@ -1,53 +1,49 @@
 <div class="wrapper">
 <header class="main-head"><h1>Vehicles<h1></header>
 
-<div class="">
+<aside class="side">
+<div class="vehicles">
   <ul>
     <li><a href="/vehicles/available">available</a>
     </li>
     <li><a href="/vehicles/rented">on-hire</a>
     </li>
+    <li><a href="/vehicles/new">Add new vehicle</a></li>
   </ul>
 </div>
 <br>
-
-<aside class="side">
-  <h3>Categories</h3>
-    <ul>
+    <ul>Categories
       <%@categories.each do |category| %>
-        <li><a href="/vehicles/filter/<%=category.to_s%>"><%=category%></a></li>
+        <li class="vehicles"><a href="/vehicles/filter/<%=category.to_s%>"><%=category%></a></li>
         <%end%>
     </ul>
 </aside>
 
-<div class="">
-<a href="/vehicles/new">Add new vehicle</a><br>
-</div>
 
-<div class="">
+
+<div class="content">
   <% @vehicles.each do |vehicle| %>
-  <hr>
-    <figure class="">
-      <img src="/images/<%=vehicle.image%>" alt="Photo of <%=vehicle.name%>"><br>
-    </figure>
 
-    <div class="">
-      <h3><%= vehicle.name %></h3>
+    <div>
+      <img src="/images/<%=vehicle.image%>" alt="Photo of <%=vehicle.name%>"><br>
     </div>
-          <% if vehicle.on_hire == 'true' %>
+
+
+      <h3><%= vehicle.name %></h3>
+
+          <% if vehicle.on_hire == 'false' %>
+          <a href="/vehicles/<%=vehicle.id%>">Show <%=vehicle.name%> details</a><br>
+          <a href="/vehicles/<%=vehicle.id%>/rent">Rent <%=vehicle.name%></a><br>
+
+          <%else%>
+          <a href="/vehicles/<%=vehicle.id%>">Show <%=vehicle.name%> details</a><br>
 
       <form class="" action="/vehicles/<%=vehicle.id%>/check-in" method="post">
-        <input type="submit" name="" value="Check-in <%=vehicle.name%>"><br>
-          <%else%>
+        <input type="submit" name="" value="Check-in <%=vehicle.name%>">
       </form>
-
-      <div class="">
-        <a href="/vehicles/<%=vehicle.id%>/rent">Rent <%=vehicle.name%></a><br>
+<br>
           <%end%>
-      </div>
-
-      <div class="">
-        <a href="/vehicles/<%=vehicle.id%>">Show <%=vehicle.name%> details</a>
+        <hr class="vehicles">
           <%end%>
-      </div>
+
 </div>

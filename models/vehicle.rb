@@ -22,7 +22,7 @@ class Vehicle
   end
 
   def Vehicle.all()
-    sql = "SELECT * FROM vehicles"
+    sql = "SELECT * FROM vehicles ORDER BY name ASC"
     results = SqlRunner.run(sql)
     return results.map{ |vehicle| Vehicle.new(vehicle) }
   end
@@ -42,7 +42,7 @@ class Vehicle
 
   #define function to return all vehicles of given category
   def Vehicle.type(category)
-    sql = "SELECT * FROM vehicles WHERE category = $1"
+    sql = "SELECT * FROM vehicles WHERE category = $1 ORDER BY name ASC"
     values = [category]
     results = SqlRunner.run(sql, values)
     return results.map{ |vehicle| Vehicle.new(vehicle) }
@@ -50,7 +50,7 @@ class Vehicle
 
 #function to return all vehicles on hire
   def Vehicle.rented()
-    sql = "SELECT * FROM vehicles WHERE on_hire = $1"
+    sql = "SELECT * FROM vehicles WHERE on_hire = $1 ORDER BY name ASC"
     values = ["true"]
     results = SqlRunner.run(sql, values)
     return results.map{ |vehicle| Vehicle.new(vehicle) }

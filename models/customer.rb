@@ -19,7 +19,7 @@ class Customer
   end
 
   def Customer.all()
-    sql = "SELECT * FROM customers"
+    sql = "SELECT * FROM customers ORDER BY second_name ASC"
     results = SqlRunner.run(sql)
     return results.map{ |customer| Customer.new(customer) }
   end

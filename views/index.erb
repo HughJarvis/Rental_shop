@@ -1,9 +1,30 @@
-<header class="main-head"><h1>Pure mad mental vehicle rental<h1></header>
+<div class="wrapper-home">
+  <header class="main-head"><h1>Transendental vehicle rental<h1></header>
 
-<div class="">
-<h3>Vehicles on hire: <%=@vehicles_on_hire.count%></h3>
-</div>
+    <div class="tagline">
+      <br>
+      <h2>...get yourself to a hire place...</h2>
+    </div>
 
-<div class="">
-<h3>Vehicles available: <%=@available_vehicles.count%></h3>
+  <div class="content">
+      <br>
+    <hr class="vehicle">
+
+    <div class="counter">
+      <h3>Vehicles on hire: </h3>
+    </div>
+
+    <div class="counter">
+      <h1><%=@vehicles_on_hire.count%></h1>
+    </div>
+
+    <div class="counter">
+      <h3>Vehicles available: </h3>
+    </div>
+
+    <div class="counter">
+      <h1><%=@available_vehicles.count%></h1>
+    </div>
+
+  </div>
 </div>

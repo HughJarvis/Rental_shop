@@ -1,28 +1,34 @@
-<header class="main-head"><h1>Rentals<h1></header>
+<div class="wrapper">
+  <header class="main-head"><h1 class="rentals">Rentals<h1></header>
 
 
-<a href="/rentals/new">Create new rental</a>
-<br>
+    <aside class="side">
+      <div class="rentals">
+        <ul>
+          <li><a href="/rentals/new">Create new rental</a></li>
+        </ul>
+      </div>
+    </aside>
+
+
+    <div class="content">
+
+      <%@rentals.each do |rental|%>
 
 
 
-<%@rentals.each do |rental|%>
-<hr>
-<figure>
-  <img src="/images/<%=rental.vehicle.image%>" alt="Photo of <%=rental.vehicle.name%>">
-</figure>
+      <div>
+        <img src="/images/<%=rental.vehicle.image%>" alt="Photo of <%=rental.vehicle.name%>">
+      </div>
 
-<div class="">
-  <h3>Rental <%=rental.id%></h3>
+      <h3>Rental <%=rental.id%></h3>
+
+      <p1>Vehicle: <%=rental.vehicle.name%></p>
+
+        <p1>Customer: <%=rental.customer.second_name%>, <%=rental.customer.first_name%></p>
+
+    <hr class="rentals">
+    <% end %>
+
+  </div>
 </div>
-
-<div class="">
-  <p1>Vehicle: <%=rental.vehicle.name%></p>
-</div>
-
-<div class="">
-  <p1>Customer: <%=rental.customer.second_name%>, <%=rental.customer.first_name%></p>
-</div>
-    <br>
-
-<% end %>

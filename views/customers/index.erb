@@ -1,20 +1,24 @@
-<header class="main-head"><h1>Customers</h1></header>
-<div class="">
+<div class="wrapper">
+  <header class="main-head"><h1 class="customers">Customers</h1></header>
 
+<aside class="side">
+  <div class="customers">
+    <ul>
+      <li><a href="/customers/new">Add new customer</a></li>
+    </ul>
+  </div>
+</aside>
 
-  <a href="/customers/new">Add new customer</a>
-  <br>
-</div>
-
-<div class="">
-  <% @customers.each do |customer| %>
+  <div class="content">
+    <% @customers.each do |customer| %>
+    <hr class="customers">
     <h3><%= customer.second_name %>, <%= customer.first_name %></h3>
-</div>
-<div class="">
-    <a href="/customers/<%=customer.id%>/rent">Set up rental</a>
-    <br>
-</div>
-<div class="">
+
+    <a href="/customers/<%=customer.id%>/rent">Set up rental</a><br>
+
     <a href="/customers/<%=customer.id%>">Show <%= customer.first_name %> <%= customer.second_name%>'s details</a>
-  <% end %>
+    <% end %>
+    <br>
+  </div>
+
 </div>

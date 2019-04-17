@@ -1,6 +1,13 @@
+<header class="main-head"><h1 class="rentals">New rental</h1></header>
+<div class="">
+  <hr>
+  <div class="">
+   <h3>Enter details below</h3>
+  </div>
+
 <form action="/rentals/new" method="post">
 
-  <label for="customer-id">Select customer</label>
+  <label for="customer-id">Select customer: </label>
   <select id="customer-id" name="customer_id">
 
     <%@customers.each do |customer|%>
@@ -8,8 +15,8 @@
     <option <%=customer.id%> value="<%=customer.id%>"><%=customer.second_name%>, <%=customer.first_name%></option>
     <%end%>
   </select>
-
-  <label for="vehicle-id">Select vehicle</label>
+<br>
+  <label for="vehicle-id">Select vehicle: </label>
   <select id="vehicle-id" name="vehicle_id">
 
     <%@vehicles.each do |vehicle|%>
@@ -17,7 +24,8 @@
     <option <%=vehicle.id%> value="<%=vehicle.id%>"><%=vehicle.name%></option>
     <%end%>
   </select>
-
+<br>
 <input type="submit" value="Save new rental">
 
 </form>
+  <hr>

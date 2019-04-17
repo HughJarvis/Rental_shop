@@ -1,11 +1,15 @@
-<h1>Enter vehicle details</h1>
+<header class="main-head"><h1 class="vehicles">New vehicle</h1></header>
+<hr>
+<div class="">
+ <h3>Enter details below</h3>
+</div>
 
 <div class="">
   <form action="/vehicles" method="post">
-    name:<input type="text" name="name"><br>
-    category:<input type="text" name="category"><br>
-    image: <input type="text" name="image"><br>
-    on hire?<br>
+    Vehicle name: <input type="text" name="name" value="Enter vehicle name"><br>
+    category: <input type="text" name="category" value="Enter category"><br>
+    image: <input type="text" name="image" value="Enter image filename"><br>
+    on hire? <br>
     <input type="radio" name="on_hire" value="true">Yes
     <input type="radio" name="on_hire" value="false" checked/>No
 <br>
@@ -13,3 +17,4 @@
 
   </form>
 </div>
+<hr>

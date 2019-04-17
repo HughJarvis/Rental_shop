@@ -1,5 +1,6 @@
-<h1>rent to <%=@customer.first_name%> <%=@customer.second_name%></h1>
+<h1>New rental </h1>
 
+<h3>Customer: <%=@customer.first_name%> <%=@customer.second_name%></h3>
 <form action="/customers/<%=@customer.id%>/rent" method="post">
 
   <label for="vehicle-id">Choose Vehicle</label>
@@ -10,7 +11,7 @@
     <option <%=vehicle.id%> value="<%=vehicle.id%>"><%=vehicle.name%></option>
     <%end%>
   </select>
-
+<br>
 <input type="submit" value="Save new rental">
 
 </form>
