@@ -8,27 +8,32 @@
           <li><a href="/rentals/new">Create new rental</a></li>
         </ul>
       </div>
+
+      <ul>Categories
+        <%@categories.each do |category| %>
+          <li class="rentals"><a href="/rentals/filter/<%=category.to_s%>"><%=category%></a></li>
+          <%end%>
+      </ul>
     </aside>
 
 
     <div class="content">
-
       <%@rentals.each do |rental|%>
-
-
 
       <div>
         <img src="/images/<%=rental.vehicle.image%>" alt="Photo of <%=rental.vehicle.name%>">
       </div>
 
       <h3>Rental <%=rental.id%></h3>
-    <ul class="rentals">
-      <li>Vehicle: <%=rental.vehicle.name%></li>
 
-      <li>Customer: <%=rental.customer.second_name%>, <%=rental.customer.first_name%></a></li>
-    </ul>
-    <hr class="rentals">
-    <% end %>
+      <ul class="rentals">
+        <li>Vehicle: <a href="vehicles/<%=rental.vehicle_id%>"><%=rental.vehicle.name%></a></li>
+        <li>Customer: <a href="customers/<%=rental.customer_id%>"><%=rental.customer.second_name%>, <%=rental.customer.first_name%></a></li>
+        <li>Status: <%=rental.status%></li>
+      </ul>
+        
+      <hr class="rentals">
+      <% end %>
+    </div>
 
-  </div>
 </div>

@@ -60,7 +60,7 @@ vehicle6.save()
 
 vehicle7 = Vehicle.new({
       'name' => 'Airwolf',
-      'category' => 'circus',
+      'category' => 'screen_stars',
       'on_hire' => 'false',
       'image' => 'airwolf.jpg'
   })
@@ -122,17 +122,52 @@ customer7.save()
 
 rental1 = Rental.new({
   'customer_id' => customer1.id,
-  'vehicle_id' => vehicle3.id
+  'vehicle_id' => vehicle3.id,
+  'status' => 'returned'
   })
 
+vehicle3.check_in
 rental1.save
 
 rental2 = Rental.new({
   'customer_id' => customer2.id,
-  'vehicle_id' => vehicle5.id
+  'vehicle_id' => vehicle5.id,
+  'status' => 'on_hire'
   })
-
+vehicle5.check_out
 rental2.save
+
+rental3 = Rental.new({
+  'customer_id' => customer3.id,
+  'vehicle_id' => vehicle2.id,
+  'status' => 'on_hire'
+  })
+vehicle2.check_out
+rental3.save
+
+rental4 = Rental.new({
+  'customer_id' => customer4.id,
+  'vehicle_id' => vehicle4.id,
+  'status' => 'on_hire'
+  })
+vehicle4.check_out
+rental4.save
+
+rental5 = Rental.new({
+  'customer_id' => customer5.id,
+  'vehicle_id' => vehicle6.id,
+  'status' => 'on_hire'
+  })
+vehicle6.check_out
+rental5.save
+
+rental6 = Rental.new({
+  'customer_id' => customer6.id,
+  'vehicle_id' => vehicle7.id,
+  'status' => 'returned'
+  })
+vehicle7.check_in
+rental6.save
 
 binding.pry
 nil

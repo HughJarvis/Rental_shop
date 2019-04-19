@@ -8,7 +8,14 @@ also_reload( '../models/*' )
 
 get '/rentals' do
   @rentals = Rental.all()
+  @categories = Vehicle.categories()
   erb (:"rentals/index")
+end
+
+get '/rentals/filter/:category' do
+  @rentals = Rental.type(params[:category])
+  @categories = Vehicle.categories()
+  erb( :"rentals/index")
 end
 
 get '/rentals/new' do
@@ -26,4 +33,11 @@ post '/rentals/new' do
   vehicle = Vehicle.find(params[:vehicle_id])
   vehicle.check_out()
   redirect to '/rentals'
+end
+
+post '/rentals/return' do
+  rental = Rental.new(params)
+  rental.returned
+  vehicle = rental.vehicle
+  vehicle.check_in
 end

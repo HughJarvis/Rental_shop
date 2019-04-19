@@ -20,5 +20,6 @@ CREATE TABLE customers(
 CREATE TABLE rentals(
   id SERIAL PRIMARY KEY,
   customer_id INT REFERENCES customers(id) ON DELETE CASCADE,
-  vehicle_id INT REFERENCES vehicles(id) ON DELETE CASCADE
+  vehicle_id INT REFERENCES vehicles(id) ON DELETE CASCADE,
+  status VARCHAR
 );
